@@ -3,12 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <meta http-equiv="refresh" content="0; url=http://google.com/" />
+    <title>Redirecting...</title>
 </head>
 <body>
-    <h3>loading...</h3>
-</body>
+    <h3>Loading...</h3>
 
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const softwareName = urlParams.get('software');
+        
+        let redirectUrl = 'https://google.com/';
+
+        if (softwareName) {
+            redirectUrl += '?software=' + encodeURIComponent(softwareName);
+        }
+        
+        // Выполняем редирект
+        window.location.href = redirectUrl;
+    </script>
+</body>
 </html>
 
